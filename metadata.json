@@ -1,0 +1,6 @@
+{
+  "name": "Mother Care - মা ও শিশুর যত্ন",
+  "description": "মা ও নবজাতক শিশুর সার্বিক যত্ন, স্বাস্থ্য পরামর্শ ও সেবার নির্ভরযোগ্য প্ল্যাটফর্ম।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
