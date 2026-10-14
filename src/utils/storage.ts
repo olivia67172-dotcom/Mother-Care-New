@@ -456,19 +456,28 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   siteName: 'Mother Care',
   tagline: 'একটি নতুন প্রাণের অপেক্ষায়',
   subTitle: 'একটি নতুন প্রাণের অপেক্ষায়',
-  directLinkProblemBox: 'https://www.highcpmgate.com/direct-link-1',
-  directLinkPregnantDay: 'https://www.highcpmgate.com/direct-link-2',
-  directLinkConsultation: 'https://www.highcpmgate.com/direct-link-3',
-  directLinkMainBanner: 'https://www.highcpmgate.com/direct-link-4',
-  directLinkInArticle: 'https://www.highcpmgate.com/direct-link-5',
-  adSocialBarCode: '',
-  adBannerCode: '',
+  directLinkProblemBox: 'https://www.profitableratecpmnetwork.com/upgv4b5fqp?key=d6c43d6c5c650945b870eaae68109c39',
+  directLinkPregnantDay: 'https://www.profitableratecpmnetwork.com/zys9v6bqmy?key=a6bcd9948443bcc9355cee3add942839',
+  directLinkConsultation: 'https://www.profitableratecpmnetwork.com/awqwz58jh6?key=c0d6c7eb061d2068c6768384d84436c4',
+  directLinkMainBanner: 'https://www.profitableratecpmnetwork.com/e3tcw9g36x?key=dfc6bcc7ea509678ea00c4d311c6659f',
+  directLinkInArticle: 'https://www.profitableratecpmnetwork.com/b32mkmake?key=9c7adfb6b03c5287ae663c4c118039f1',
+  adSocialBarCode: '<script type="text/javascript" src="https://pl31827307.profitableratecpmnetwork.com/d8/7c/c7/d87cc7880ec36fb0b61a5ad5fd187a21.js"></script>',
+  adBannerCode: `<script type="text/javascript">
+  atOptions = {
+    'key' : '980f46cb706ebcd740813898cc9bb6eb',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script type="text/javascript" src="https://www.highrevenueformat.com/980f46cb706ebcd740813898cc9bb6eb/invoke.js"></script>`,
   announcement: 'স্বাগতম Mother Care-এ! মা হওয়ার স্বপ্নপূরণে আপনার পাশে একটি নতুন প্রাণের অপেক্ষায়।'
 };
 
 const STORAGE_KEYS = {
   POSTS: 'mother_care_posts_v2',
-  SETTINGS: 'mother_care_settings_v2',
+  SETTINGS: 'mother_care_settings_v3',
 };
 
 export const getStoredPosts = (): CarePost[] => {
@@ -494,15 +503,17 @@ export const getStoredSettings = (): SiteSettings => {
     const raw = localStorage.getItem(STORAGE_KEYS.SETTINGS);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const legacyLink = parsed.adsterraDirectLink || 'https://www.highcpmgate.com/direct-link-1';
+      const isDummy = (link?: string) => !link || link.includes('highcpmgate.com');
       return {
         ...DEFAULT_SETTINGS,
-        directLinkProblemBox: parsed.directLinkProblemBox || legacyLink,
-        directLinkPregnantDay: parsed.directLinkPregnantDay || legacyLink,
-        directLinkConsultation: parsed.directLinkConsultation || legacyLink,
-        directLinkMainBanner: parsed.directLinkMainBanner || legacyLink,
-        directLinkInArticle: parsed.directLinkInArticle || legacyLink,
         ...parsed,
+        directLinkProblemBox: isDummy(parsed.directLinkProblemBox) ? DEFAULT_SETTINGS.directLinkProblemBox : parsed.directLinkProblemBox,
+        directLinkPregnantDay: isDummy(parsed.directLinkPregnantDay) ? DEFAULT_SETTINGS.directLinkPregnantDay : parsed.directLinkPregnantDay,
+        directLinkConsultation: isDummy(parsed.directLinkConsultation) ? DEFAULT_SETTINGS.directLinkConsultation : parsed.directLinkConsultation,
+        directLinkMainBanner: isDummy(parsed.directLinkMainBanner) ? DEFAULT_SETTINGS.directLinkMainBanner : parsed.directLinkMainBanner,
+        directLinkInArticle: isDummy(parsed.directLinkInArticle) ? DEFAULT_SETTINGS.directLinkInArticle : parsed.directLinkInArticle,
+        adBannerCode: parsed.adBannerCode && parsed.adBannerCode.trim() ? parsed.adBannerCode : DEFAULT_SETTINGS.adBannerCode,
+        adSocialBarCode: parsed.adSocialBarCode && parsed.adSocialBarCode.trim() ? parsed.adSocialBarCode : DEFAULT_SETTINGS.adSocialBarCode,
       };
     }
   } catch (e) {

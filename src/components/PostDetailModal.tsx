@@ -128,12 +128,12 @@ export const PostDetailModal: React.FC<PostDetailModalProps> = ({
             ))}
           </div>
 
-          {/* Clean In-Article Adsterra Placement Slot */}
-          <div className="my-6 py-2 border-y border-dashed border-slate-200">
+          {/* Clean In-Article Adsterra 300x250 Banner Slot */}
+          <div className="my-6 py-2 border-y border-dashed border-pink-200/70 flex justify-center">
             <AdsterraAdBanner
               directLink={directLinkInArticle}
               customScriptCode={adBannerCode}
-              format="in-feed"
+              format="rectangle"
             />
           </div>
 

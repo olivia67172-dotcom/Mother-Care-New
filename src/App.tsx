@@ -169,26 +169,30 @@ export default function App() {
             })}
 
             {/* Special High-Intent Category: "যে দিন মিলনে গর্ভধারণ হবেই" -> Dedicated Direct Link 2 */}
-            <button
-              onClick={() => handleOpenDirectLink(settings.directLinkPregnantDay)}
+            <a
+              href={settings.directLinkPregnantDay || 'https://www.profitableratecpmnetwork.com/zys9v6bqmy?key=a6bcd9948443bcc9355cee3add942839'}
+              target="_blank"
+              rel="noopener noreferrer"
               title="বিশেষ গাইড দেখতে ক্লিক করুন"
               className="text-xs sm:text-sm font-extrabold whitespace-nowrap px-3 py-1.5 rounded-lg bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white shadow-xs hover:shadow transition-all shrink-0 flex items-center gap-1 active:scale-95 animate-pulse"
             >
               <Flame className="w-3.5 h-3.5 text-yellow-300 fill-yellow-300" />
               <span>যে দিন মিলনে গর্ভধারণ হবেই</span>
               <ExternalLink className="w-3 h-3 text-pink-200" />
-            </button>
+            </a>
           </nav>
 
           {/* "পরামর্শ চান?" Button -> Dedicated Direct Link 3 */}
           <div className="flex items-center shrink-0">
-            <button
-              onClick={() => handleOpenDirectLink(settings.directLinkConsultation)}
+            <a
+              href={settings.directLinkConsultation || 'https://www.profitableratecpmnetwork.com/awqwz58jh6?key=c0d6c7eb061d2068c6768384d84436c4'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 whitespace-nowrap active:scale-95"
             >
               <Sparkles className="w-3.5 h-3.5 text-pink-300" />
               <span>পরামর্শ চান?</span>
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -196,12 +200,21 @@ export default function App() {
       {/* 3. COMPACT "আপনার সমস্যা এখানে লিখুন" BOX -> Dedicated Direct Link 1 */}
       <ProblemSubmissionBox directLinkProblemBox={settings.directLinkProblemBox} />
 
-      {/* 4. ADSTERRA HORIZONTAL BANNER -> Dedicated Direct Link 4 & Banner Code */}
+      {/* 4. ADSTERRA HORIZONTAL BANNER -> Dedicated Direct Link 4 */}
       <div className="max-w-4xl mx-auto px-3 sm:px-4 w-full">
         <AdsterraAdBanner
           directLink={settings.directLinkMainBanner}
           customScriptCode={settings.adBannerCode}
           format="horizontal"
+        />
+      </div>
+
+      {/* 4.B DEDICATED 300x250 ADSTERRA BANNER UNIT */}
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 w-full flex justify-center">
+        <AdsterraAdBanner
+          customScriptCode={settings.adBannerCode}
+          directLink={settings.directLinkMainBanner}
+          format="rectangle"
         />
       </div>
 
